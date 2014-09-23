@@ -13,4 +13,6 @@ require_relative './data_mapper_setup'
 
 require_relative './helpers/application'
 
+require_relative './models/product'
+
 require_relative './controllers/application'
