@@ -1,11 +1,15 @@
 <ul class="products_list">
-  <% @products.each do |product| %>
-  <li class="product" id="<%= product.id %>">
-    <%= product.title %>
-    <%= product.gender %>
-    <%= product.category.title %>
-    £ <%= product.price %>
-    Available: <%= product.quantity %>
+  <% if @products.any? %> 
+    <% @products.each do |product| %>
+    <li class="product" id="<%= product.id %>">
+      <%= product.title %>
+      <%= product.gender %>
+      <%= product.category.title %>
+      £ <%= product.price %>
+      Available: <%= product.quantity %>
+    </li>
+    <% end %>
+  <% else %>
+    No products available at this moment
   <% end %>
-  </li>
 </ul>

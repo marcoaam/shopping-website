@@ -27,4 +27,13 @@ feature 'Products' do
 
   end
 
+  context 'With none in the DB' do
+
+    scenario 'User can see a message' do
+      visit '/'
+      expect(page).to have_content 'No products available at this moment'
+    end
+
+  end
+
 end
