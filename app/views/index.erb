@@ -2,6 +2,8 @@
   <% @products.each do |product| %>
   <li class="product" id="<%= product.id %>">
     <%= product.title %>
+    <%= product.gender %>
+    <%= product.category.title %>
   <% end %>
   </li>
 </ul>
