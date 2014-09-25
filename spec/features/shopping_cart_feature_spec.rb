@@ -9,7 +9,7 @@ feature 'Shopping cart' do
       Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5, category_id: category.id )
     end
 
-    scenario 'Can add a product to the shooping cart' do
+    scenario 'Can add a product to the shopping cart' do
       visit '/'
       click_button 'Add to cart'
       expect(page).to have_content 'Available: 4'

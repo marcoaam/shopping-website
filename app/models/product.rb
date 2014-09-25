@@ -10,4 +10,9 @@ class Product
 
   belongs_to :category
 
+  def update_quantity(amount)
+    return if amount > self.quantity
+    self.quantity = self.quantity - amount
+  end
+
 end
