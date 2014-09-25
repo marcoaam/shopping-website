@@ -1,9 +1,10 @@
 require 'spec_helper'
 
-describe Product do
+describe StockProduct do
 
   let(:product) do
-    Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5)
+    product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99)
+    StockProduct.create(product_id: product.id, quantity: 5)
   end
 
   it 'can remove quantity' do

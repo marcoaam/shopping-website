@@ -6,7 +6,8 @@ feature 'Products' do
 
     before(:each) do
       category = Category.create(title: 'Footwear')
-      Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5, category_id: category.id )
+      product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
+      stock_product = StockProduct.create(product_id: product.id, quantity: 5)
     end
 
     scenario 'Shows the title of all available products' do

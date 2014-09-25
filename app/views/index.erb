@@ -1,13 +1,13 @@
 <ul class="products_list">
   <% if @products.any? %> 
-    <% @products.each do |product| %>
-    <li class="product" id="<%= product.id %>">
-      <%= product.title %> / 
-      <%= product.gender %>
-      <%= product.category.title %>
-      £ <%= product.price %> / 
-      Available: <%= product.quantity %>
-      <form action="/cart/add/<%= product.id %>/" method="GET">
+    <% @products.each do |stock_item| %>
+    <li class="product" id="<%= stock_item.product.id %>">
+      <%= stock_item.product.title %> / 
+      <%= stock_item.product.gender %>
+      <%= stock_item.product.category.title %>
+      £ <%= stock_item.product.price %> / 
+      Available: <%= stock_item.quantity %>
+      <form action="/cart/add/<%= stock_item.id %>/" method="GET">
         <input type="number" min="1" value="1" name="quantity">
         <input type="submit" value="Add to cart">
       </form>
