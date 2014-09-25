@@ -5,12 +5,12 @@
       <%= product.title %> / 
       <%= product.gender %>
       <%= product.category.title %>
-      £ <%= product.price %>
+      £ <%= product.price %> / 
+      Available: <%= product.quantity %>
       <form action="/cart/add/<%= product.id %>/" method="GET">
         <input type="number" min="1" value="1" name="quantity">
         <input type="submit" value="Add to cart">
       </form>
-      Available: <%= product.quantity %>
     </li>
     <% end %>
   <% else %>
