@@ -16,4 +16,9 @@ describe Product do
     expect(product.quantity).to eq 5
   end
 
+  it 'cannot take less than 1 to remove quantity' do
+    product.update_quantity(-1)
+    expect(product.quantity).to eq 5
+  end
+
 end

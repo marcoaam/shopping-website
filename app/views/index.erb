@@ -7,7 +7,7 @@
       <%= product.category.title %>
       £ <%= product.price %>
       <form action="/cart/add/<%= product.id %>/" method="GET">
-        <input type="text" name="quantity" value="1" size="1">
+        <input type="number" min="1" value="1" name="quantity">
         <input type="submit" value="Add to cart">
       </form>
       Available: <%= product.quantity %>
