@@ -15,5 +15,7 @@ require_relative './helpers/application'
 
 require_relative './models/product'
 require_relative './models/category'
+require_relative './models/cart'
 
 require_relative './controllers/application'
+require_relative './controllers/shopping_cart'

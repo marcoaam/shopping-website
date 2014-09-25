@@ -9,17 +9,17 @@ feature 'Products' do
       Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5, category_id: category.id )
     end
 
-    scenario 'User can see the title of all available products' do
+    scenario 'Shows the title of all available products' do
       visit '/'
       expect(page).to have_content 'Almond Toe Court Shoes'
     end
 
-    scenario 'User can see the category and gender to which the product belongs' do
+    scenario 'Shows the category and gender to which the product belongs' do
       visit '/'
       expect(page).to have_content 'Women’s Footwear'
     end
 
-    scenario 'User can see the product price and available quantity' do
+    scenario 'Shows the product price and available quantity' do
       visit '/'
       expect(page).to have_content '£ 99'
       expect(page).to have_content 'Available: 5'
@@ -29,7 +29,7 @@ feature 'Products' do
 
   context 'With none in the DB' do
 
-    scenario 'User can see a message' do
+    scenario 'Shows a message' do
       visit '/'
       expect(page).to have_content 'No products available at this moment'
     end

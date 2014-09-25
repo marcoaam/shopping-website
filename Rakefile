@@ -10,3 +10,8 @@ task :auto_migrate do
   DataMapper.auto_migrate!
   puts "Auto-migrate complete (data could have been lost)"
 end
+
+task :seed do
+  category = Category.create(title: 'Footwear')
+  Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5, category_id: category.id )
+end
