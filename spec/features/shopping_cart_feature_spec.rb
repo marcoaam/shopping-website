@@ -1,8 +1,11 @@
 require 'spec_helper'
+require_relative './helpers/shopping_cart_helper'
+
+include ShoppingHelper
 
 feature 'Shopping cart' do
 
-  context 'With some products in the DB' do
+  context 'With some products added to the cart' do
 
     before(:each) do
       category = Category.create(title: 'Footwear')
@@ -11,8 +14,7 @@ feature 'Shopping cart' do
     end
 
     scenario 'Can sustract one product and adds it to the shopping cart' do
-      visit '/'
-      click_button 'Add to cart'
+      add_to_shopping_cart(1)
       expect(page).to have_content 'Available: 4'
       within('.shopping_cart') do
         expect(page).to have_content '1 items'
@@ -21,9 +23,7 @@ feature 'Shopping cart' do
     end
 
     scenario 'Can sustract two products and adds it to the shopping cart' do
-      visit '/'
-      fill_in :quantity, with: 2
-      click_button 'Add to cart'
+      add_to_shopping_cart(2)
       expect(page).to have_content 'Available: 3'
       within('.shopping_cart') do
         expect(page).to have_content '2 items'
@@ -31,9 +31,7 @@ feature 'Shopping cart' do
     end
 
     scenario 'Can remove products from the shopping cart' do
-      visit '/'
-      fill_in :quantity, with: 2
-      click_button 'Add to cart'
+      add_to_shopping_cart(2)
       expect(page).to have_content 'Available: 3'
       within('.shopping_cart') do
         expect(page).to have_content '2 items'
@@ -43,6 +41,16 @@ feature 'Shopping cart' do
       expect(page).to have_content 'Available: 4'
     end
 
+  end
+
+  context 'Without any products added to the cart' do
+    scenario 'Shows 0 items and 0 total price' do
+      visit '/'
+      within('.shopping_cart') do
+        expect(page).to have_content 'Total: 0 items'
+        expect(page).to have_content 'Total price: £ 0'
+      end
+    end
   end
 
 end
