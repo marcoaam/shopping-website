@@ -6,7 +6,7 @@ get '/cart/add/:product/' do
 end
 
 get '/cart/:cart_id/delete/' do
-  cart = CartProduct.first(id: params[:cart_id])
-  cart.delete_from_cart
+  cart_product = CartProduct.first(id: params[:cart_id])
+  cart_product.delete_from_cart
   redirect to '/'
 end

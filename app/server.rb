@@ -18,6 +18,8 @@ require_relative './models/product'
 require_relative './models/category'
 require_relative './models/stock_product'
 require_relative './models/cart_product'
+require_relative './models/voucher'
 
 require_relative './controllers/application'
 require_relative './controllers/shopping_cart'
+require_relative './controllers/voucher'

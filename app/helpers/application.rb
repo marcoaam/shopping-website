@@ -1,8 +1,8 @@
 helpers do
 
-  def total_price(cart)
+  def total_price(cart, discount)
     return 0 if cart.none?
-    cart.count > 1 ? products_total_price(cart) : one_product_price(cart)
+    products_total_price(cart, discount)
   end
 
   def total_items(cart)
@@ -12,12 +12,8 @@ helpers do
 
 private
 
-  def one_product_price(cart)
-    cart.map { |cart_product| (cart_product.product.price * cart_product.quantity) }.first
-  end
-
-  def products_total_price(cart)
-    cart.inject { |sum, item| (sum.product.price * sum.quantity) + (item.product.price * item.quantity) }
+  def products_total_price(cart, discount)
+    cart.map { |cart_product| (cart_product.product.price * cart_product.quantity) }.inject(:+) - discount
   end
 
 end
