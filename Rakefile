@@ -12,6 +12,10 @@ task :auto_migrate do
 end
 
 task :seed do
+  Category.all.destroy
+  StockProduct.all.destroy
+  CartProduct.all.destroy
+  Product.all.destroy
   category = Category.create(title: 'Footwear')
   category_2 = Category.create(title: 'Formalwear')
   product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)

@@ -13,7 +13,7 @@ feature 'Shopping cart' do
       StockProduct.create(product_id: product.id, quantity: 5)
     end
 
-    scenario 'Can sustract one product and adds it to the shopping cart' do
+    scenario 'can subtract one product and add it to the shopping cart' do
       add_to_shopping_cart(1)
       expect(page).to have_content 'Available: 4'
       within('.shopping_cart') do
@@ -22,7 +22,7 @@ feature 'Shopping cart' do
       end
     end
 
-    scenario 'Can sustract two products and adds it to the shopping cart' do
+    scenario 'can subtract two products and add them to the shopping cart' do
       add_to_shopping_cart(2)
       expect(page).to have_content 'Available: 3'
       within('.shopping_cart') do
@@ -30,7 +30,7 @@ feature 'Shopping cart' do
       end
     end
 
-    scenario 'Can remove products from the shopping cart' do
+    scenario 'can remove products from the shopping cart' do
       add_to_shopping_cart(2)
       expect(page).to have_content 'Available: 3'
       within('.shopping_cart') do
@@ -41,9 +41,18 @@ feature 'Shopping cart' do
       expect(page).to have_content 'Available: 4'
     end
 
+    scenario 'show total price and number of items' do
+      add_to_shopping_cart(2)
+      within('.shopping_cart') do
+        expect(page).to have_content 'Total: 2 items'
+        expect(page).to have_content 'Total price: £ 198.0'
+      end
+    end
+
   end
 
   context 'Without any products added to the cart' do
+
     scenario 'Shows 0 items and 0 total price' do
       visit '/'
       within('.shopping_cart') do
@@ -51,6 +60,7 @@ feature 'Shopping cart' do
         expect(page).to have_content 'Total price: £ 0'
       end
     end
+
   end
 
 end

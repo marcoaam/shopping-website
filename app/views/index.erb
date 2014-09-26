@@ -1,12 +1,13 @@
 <div class="shopping_cart">
+  <h2>My Shopping cart</h2>
   <% @cart.each do |cart_item| %>
     <%= cart_item.product.title %> / 
     <%= cart_item.quantity %> items
     price: £ <%= cart_item.product.price %> / 
     <a href="/cart/<%= cart_item.id %>/delete/">Remove</a>
   <% end %>
-  Total: <%= @cart.count%> items
-  Total price: £ <%= 0 %>
+  Total: <%= total_items(@cart) %> items
+  Total price: £ <%= total_price(@cart) %>
 </div>
 
 <ul class="products_list">
