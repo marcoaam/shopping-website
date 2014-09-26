@@ -13,5 +13,9 @@ end
 
 task :seed do
   category = Category.create(title: 'Footwear')
-  Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, quantity: 5, category_id: category.id )
+  category_2 = Category.create(title: 'Formalwear')
+  product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
+  product_2 = Product.create(title: 'Sharkskin Waistcoat', gender: 'Men’s', price: 50, category_id: category_2.id)
+  stock_product = StockProduct.create(product_id: product.id, quantity: 5)
+  stock_product_2 = StockProduct.create(product_id: product_2.id, quantity: 8)
 end

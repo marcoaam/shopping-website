@@ -1,3 +1,11 @@
+<div class="shopping_cart">
+  <% @cart.each do |cart_item| %>
+    <%= cart_item.product.title %> / 
+    <%= cart_item.quantity %> items
+    total: £ <%= cart_item.product.price %> / 
+  <% end %>
+</div>
+
 <ul class="products_list">
   <% if @products.any? %> 
     <% @products.each do |stock_item| %>

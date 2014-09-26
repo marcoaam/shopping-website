@@ -8,7 +8,6 @@ class Product
   property :price,     Float
 
   belongs_to :category
-  has 1, :stock_product
-  has 1, :cart_product
+  has 1, :stock_product, :cart_product
 
 end

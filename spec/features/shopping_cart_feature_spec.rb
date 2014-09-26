@@ -7,16 +7,27 @@ feature 'Shopping cart' do
     before(:each) do
       category = Category.create(title: 'Footwear')
       product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
-      stock_product = StockProduct.create(product_id: product.id, quantity: 5)
+      StockProduct.create(product_id: product.id, quantity: 5)
     end
 
-    xscenario 'Can sustract one product when user adds a product to the shopping cart' do
+    scenario 'Can sustract one product and adds it to the shopping cart' do
       visit '/'
       click_button 'Add to cart'
       expect(page).to have_content 'Available: 4'
       within('.shopping_cart') do
         expect(page).to have_content '1 items'
         expect(page).to have_content 'total: £ 99'
+      end
+    end
+
+    scenario 'Can sustract two products and adds it to the shopping cart' do
+      visit '/'
+      fill_in :quantity, with: 2
+      click_button 'Add to cart'
+      expect(page).to have_content 'Available: 3'
+      within('.shopping_cart') do
+        expect(page).to have_content '2 items'
+        expect(page).to have_content 'total: £ 198'
       end
     end
 
