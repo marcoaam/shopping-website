@@ -1,19 +1,19 @@
 helpers do
 
-  def total_price(cart, discount)
-    return 0 if cart.none?
-    products_total_price(cart, discount)
+  def total_price(cart_products, discount)
+    return 0 if cart_products.none?
+    products_total_price(cart_products, discount)
   end
 
-  def total_items(cart)
-    return 0 if cart.none?
-    cart.sum(:quantity)
+  def total_items(cart_products)
+    return 0 if cart_products.none?
+    cart_products.sum(:quantity)
   end
 
 private
 
-  def products_total_price(cart, discount)
-    cart.map { |cart_product| (cart_product.product.price * cart_product.quantity) }.inject(:+) - discount
+  def products_total_price(cart_products, discount)
+    cart_products.map { |cart_product| (cart_product.product.price * cart_product.quantity) }.inject(:+) - discount
   end
 
 end

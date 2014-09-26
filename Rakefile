@@ -16,6 +16,7 @@ task :seed do
   StockProduct.all.destroy
   CartProduct.all.destroy
   Product.all.destroy
+  Voucher.all.destroy
   category = Category.create(title: 'Footwear')
   category_2 = Category.create(title: 'Formalwear')
   product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
