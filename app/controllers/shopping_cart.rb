@@ -4,3 +4,9 @@ get '/cart/add/:product/' do
   product.save
   redirect to '/'
 end
+
+get '/cart/:cart_id/delete/' do
+  cart = CartProduct.first(id: params[:cart_id])
+  cart.delete_from_cart
+  redirect to '/'
+end

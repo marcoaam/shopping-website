@@ -12,4 +12,13 @@ class CartProduct
     self.quantity =  self.quantity.nil? ? amount : self.quantity + amount
   end
 
+  def delete_from_cart
+    if self.quantity > 1
+      self.quantity -= 1
+      self.save
+    else
+      self.destroy
+    end
+  end
+
 end

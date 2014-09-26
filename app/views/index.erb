@@ -2,7 +2,8 @@
   <% @cart.each do |cart_item| %>
     <%= cart_item.product.title %> / 
     <%= cart_item.quantity %> items
-    total: £ <%= cart_item.product.price %> / 
+    price: £ <%= cart_item.product.price %> / 
+    <a href="/cart/<%= cart_item.id %>/delete/">Remove</a>
   <% end %>
 </div>
 

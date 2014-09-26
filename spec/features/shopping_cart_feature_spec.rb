@@ -16,7 +16,7 @@ feature 'Shopping cart' do
       expect(page).to have_content 'Available: 4'
       within('.shopping_cart') do
         expect(page).to have_content '1 items'
-        expect(page).to have_content 'total: £ 99'
+        expect(page).to have_content 'price: £ 99'
       end
     end
 
@@ -27,8 +27,20 @@ feature 'Shopping cart' do
       expect(page).to have_content 'Available: 3'
       within('.shopping_cart') do
         expect(page).to have_content '2 items'
-        expect(page).to have_content 'total: £ 198'
       end
+    end
+
+    scenario 'Can remove products from the shopping cart' do
+      visit '/'
+      fill_in :quantity, with: 2
+      click_button 'Add to cart'
+      expect(page).to have_content 'Available: 3'
+      within('.shopping_cart') do
+        expect(page).to have_content '2 items'
+        click_link 'Remove'
+      end
+      expect(page).to have_content '1 items'
+      expect(page).to have_content 'Available: 4'
     end
 
   end
