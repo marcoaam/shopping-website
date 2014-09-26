@@ -1,33 +1,37 @@
-<div class="shopping_cart">
-  <h2>My Shopping cart</h2>
-  <% @cart.each do |cart_item| %>
-    <%= cart_item.product.title %> / 
-    <%= cart_item.quantity %> items
-    price: £ <%= cart_item.product.price %> / 
-    <a href="/cart/<%= cart_item.id %>/delete/">Remove</a>
-  <% end %><br>
-  Total: <%= total_items(@cart) %> items<br>
-  Discount: - £ <%= @discount %><br>
-  Total price: £ <%= total_price(@cart, @discount) %>
-  <form action="/apply/voucher/" method="POST">
-    <input type="text" placeholder="Type in your voucher" name="voucher">
-    <input type="submit" value="Apply voucher">
-  </form>
+<div class="shopping_cart_container col-xs-12 col-sm-12 col-md-12">
+  <div class="shopping_cart">
+    <h2>My Shopping cart</h2>
+    <% @cart.each do |cart_item| %>
+      <%= cart_item.product.title %> / 
+      <%= cart_item.quantity %> items
+      price: £ <%= cart_item.product.price %> / 
+      <a href="/cart/<%= cart_item.id %>/delete/">Remove</a><br>
+    <% end %>
+    Total: <%= total_items(@cart) %> items<br>
+    Discount: - £ <%= @discount %><br>
+    Total price: £ <%= total_price(@cart, @discount) %>
+    <form action="/apply/voucher/" method="POST">
+      <input type="text" placeholder="Type in your voucher" name="voucher">
+      <input type="submit" value="Apply voucher">
+    </form>
+  </div>
 </div>
 
 <ul class="products_list">
   <% if @products.any? %> 
     <% @products.each do |stock_item| %>
-    <li class="product" id="<%= stock_item.product.id %>">
-      <%= stock_item.product.title %> / 
-      <%= stock_item.product.gender %>
-      <%= stock_item.product.category.title %>
-      £ <%= stock_item.product.price %> / 
-      Available: <%= stock_item.quantity %>
-      <form action="/cart/add/<%= stock_item.id %>/" method="GET">
-        <input type="number" min="1" value="1" name="quantity">
-        <input type="submit" value="Add to cart">
-      </form>
+    <li class="product_container col-xs-12 col-sm-6 col-md-4" id="<%= stock_item.product.id %>">
+      <div class="product">
+        <h4><%= stock_item.product.title %></h4>
+        Category: <%= stock_item.product.gender %>
+        <%= stock_item.product.category.title %><br>
+        £ <%= stock_item.product.price %> 
+        Available: <%= stock_item.quantity %>
+        <form action="/cart/add/<%= stock_item.id %>/" method="GET">
+          <input type="number" min="1" value="1" name="quantity">
+          <input type="submit" value="Add to cart">
+        </form>
+      </div>
     </li>
     <% end %>
   <% else %>

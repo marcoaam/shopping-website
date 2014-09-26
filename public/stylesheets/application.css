@@ -1,0 +1,36 @@
+body {
+  background-color: skyblue;
+}
+
+.products_list input[type="number"] {
+  width: 35px;
+  border-radius: 5px;
+}
+
+.shopping_cart_container {
+  float: right;
+  padding: 5px;
+  clear: both;
+}
+
+.shopping_cart {
+  margin: 20px auto 0 auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.shopping_cart h2 {
+  margin-top: 0px; 
+}
+
+.product_container {
+  margin: 20px auto 0 auto;
+  padding: 10px;
+}
+
+.product {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
