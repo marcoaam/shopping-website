@@ -30,4 +30,9 @@ describe StockProduct do
     expect(product.quantity).to eq 5
   end
 
+  it 'adds 1 to product quantity' do
+    product.add_to_stock
+    expect(product.quantity).to eq 6
+  end
+
 end

@@ -13,6 +13,10 @@ class StockProduct
     update_cart(session, self.id, amount)
   end
 
+  def add_to_stock
+    self.quantity += 1
+  end
+
 private
 
   def update_cart(session, product_id, amount)
