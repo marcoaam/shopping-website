@@ -10,8 +10,6 @@ helpers do
     cart_products.sum(:quantity)
   end
 
-private
-
   def products_total_price(cart_products, discount)
     cart_products.map { |cart_product| (cart_product.product.price * cart_product.quantity) }.inject(:+) - discount
   end
