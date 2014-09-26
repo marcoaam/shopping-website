@@ -19,6 +19,15 @@ class CartProduct
     else
       self.destroy
     end
+    update_stock_product(self.product_id)
+  end
+
+private
+
+  def update_stock_product(product_id)
+    stock_product = StockProduct.first(product_id: product_id)
+    stock_product.add_to_stock
+    stock_product.save   
   end
 
 end
