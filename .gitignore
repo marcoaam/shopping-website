@@ -1,0 +1,4 @@
+# codeclimate results
+/coverage/
+/coverage/.last_run.json
+/coverage/.resultset.json
