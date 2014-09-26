@@ -20,6 +20,7 @@ feature 'Voucher' do
         fill_in :voucher, with: 'GET5off'
         click_button 'Apply voucher'
       end
+      expect(page).to have_content 'Discount: - £ 5'
       expect(page).to have_content 'Total price: £ 94.0'
     end
 
