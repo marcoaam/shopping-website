@@ -1,4 +1,7 @@
 ENV["RACK_ENV"] = 'test'
+ENV['CODECLIMATE_REPO_TOKEN'] = '178816c233ae568d47209f11a2c2bd639d6c8d4d4597a05d0fb4eb40b5c794fd'
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 require 'database_cleaner'
 require 'capybara/rspec'
 
