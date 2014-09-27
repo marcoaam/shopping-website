@@ -7,7 +7,12 @@ before_install:
   - sudo apt-get update -qq 
   - sudo apt-get install -qq postgresql-server-dev-9.3 
 
+before_script:
+  - psql -c 'create database shopping_test;' -U postgres
+
 script:
   - bundle config build.nokogiri --use-system-libraries
   - travis_retry bundle install
+  - rake auto_migrate RACK_ENV=test
+  - rake auto_upgrade RACK_ENV=test
   - rspec
