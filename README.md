@@ -79,9 +79,10 @@ Requirements
 How to set it up
 ---------------
 
-- Download from https://github.com/marcoaam/shopping-website/archive/master.zip
-- Unzip the package and go to the directory on the terminal
-- Run the following commands
+1. Download from https://github.com/marcoaam/shopping-website/archive/master.zip .
+2. Unzip the package and go to the directory on the terminal.
+3. Run the following commands.
+
     bundle install
     psql -c 'create database shopping_test;'
     psql -c 'create database shopping_development;'
@@ -92,7 +93,7 @@ How to set it up
     rake seed
     rackup
 
-go in your browser to [localhost:9292/](http://localhost:9292/)
+open your browser in [localhost:9292/](http://localhost:9292/)
 
 
 How to test it
