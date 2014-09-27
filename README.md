@@ -81,17 +81,19 @@ How to set it up
 
 1. Download from https://github.com/marcoaam/shopping-website/archive/master.zip .
 2. Unzip the package and go to the directory on the terminal.
-3. Run the following commands.
 
-      bundle install
-      psql -c 'create database shopping_test;'
-      psql -c 'create database shopping_development;'
-      rake auto_migrate RACK_ENV=test
-      rake auto_upgrade RACK_ENV=test
-      rake auto_migrate
-      rake auto_upgrade
-      rake seed
-      rackup
+Run the following commands
+------------------------------
+
+    bundle install
+    psql -c 'create database shopping_test;'
+    psql -c 'create database shopping_development;'
+    rake auto_migrate RACK_ENV=test
+    rake auto_upgrade RACK_ENV=test
+    rake auto_migrate
+    rake auto_upgrade
+    rake seed
+    rackup
 
 open your browser in [localhost:9292/](http://localhost:9292/)
 
