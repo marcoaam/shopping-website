@@ -46,6 +46,15 @@ feature 'Voucher' do
       expect(page).to have_content 'Total price: £ 84.0'
     end
 
+    scenario 'gets a flash error when wrong voucher applied' do
+      add_to_shopping_cart(1)
+      within('.shopping_cart') do
+        fill_in :voucher, with: 'wrongvoucher'
+        click_button 'Apply voucher'
+      end
+      expect(page).to have_content 'Sorry voucher not valid'
+    end
+
   end
 
 end

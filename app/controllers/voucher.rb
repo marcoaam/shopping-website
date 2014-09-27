@@ -3,10 +3,15 @@ GET10OFFVOUCHER = 'GET10off'
 GET15OFFVOUCHER = 'GET15off'
 
 post '/apply/voucher/' do
-  Voucher.create(session: session[:session_id], amount: 5) if voucher_5_off_valid?(params[:voucher])
-  Voucher.create(session: session[:session_id], amount: 10) if voucher_10_off_valid?(params[:voucher])
-  Voucher.create(session: session[:session_id], amount: 15) if voucher_15_off_valid?(params[:voucher])
+  if voucher_valid?(params[:voucher])
+    Voucher.apply_voucher(session[:session_id], params[:voucher])
+  else
+    flash[:errors] = ['Sorry voucher not valid']
+  end
   redirect to '/'
 end
 
-
+def voucher_valid?(voucher)
+  voucher_5_off_valid?(voucher) || voucher_10_off_valid?(voucher) ||
+  voucher_15_off_valid?(voucher)
+end
