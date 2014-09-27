@@ -37,13 +37,13 @@ I choose to use a database in this case even thought I had the option of mocking
 
 ### Bootstrap
 
-The customer request is for a responsive website that can easily be optimised to all devices and bootstrap I consider it has great features to do this. Using Bootstrap allows to manipulate elements on the page easily and has a great set of extra features to be ready for expansion when needed.
+The customer requirement is for a responsive website that can easily be optimised to all devices and bootstrap I consider it has great features to do this. Using Bootstrap allows to manipulate elements on the page easily and has a great set of extra features to be ready for expansion when needed.
 
 
 File structure
 --------------
 
-In the app folder there are a series of folders. each one of them contains the following.
+In the app folder there are a series of folders in the MVC kind of structure. each one of them contains the following.
 
 Models
 ------
@@ -56,13 +56,6 @@ There are 5 models to handle the relations efficiently.
 - CartProduct
 - Voucher
 
-Controllers
------------
-
-- application   (handles the homepage)
-- shopping_cart (handles each creation and removal of products)
-- Voucher       (handles the voucher creation)
-
 Views
 ------
 
@@ -72,20 +65,26 @@ Views
 - _flash_errors  (partial to display the errors)
 - layout         (main application template)
 
+Controllers
+-----------
+
+- application   (handles the homepage)
+- shopping_cart (handles each creation and removal of products)
+- Voucher       (handles the voucher creation)
+
 
 Application run requirements
 ----------------------------
 
 - Ruby
-- bundler 
-    gem install bundler
+- bundler (gem install bundler)
 
 
 How to set it up
 ---------------
 
 1. Download from https://github.com/marcoaam/shopping-website/archive/master.zip .
-2. Unzip the package and go to the directory on the terminal.
+2. Unzip the package and go to the directory in the terminal.
 
 Run the following commands
 ------------------------------

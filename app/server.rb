@@ -12,9 +12,6 @@ use Rack::Flash
 
 require_relative './data_mapper_setup'
 
-require_relative './helpers/application'
-require_relative './helpers/voucher'
-
 require_relative './models/product'
 require_relative './models/category'
 require_relative './models/stock_product'
