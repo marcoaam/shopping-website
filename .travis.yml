@@ -1,18 +1,20 @@
 language: ruby
+
 rvm:
   - 2.1.2
-install: gem install bundler
 
 before_install: 
   - sudo apt-get update -qq 
   - sudo apt-get install -qq postgresql-server-dev-9.3 
 
+install: gem install bundler
+
 before_script:
   - psql -c 'create database shopping_test;' -U postgres
-  - rake auto_migrate RACK_ENV=test
-  - rake auto_upgrade RACK_ENV=test
 
 script:
   - bundle config build.nokogiri --use-system-libraries
   - travis_retry bundle install
+  - rake auto_migrate RACK_ENV=test
+  - rake auto_upgrade RACK_ENV=test
   - rspec spec
