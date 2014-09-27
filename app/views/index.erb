@@ -8,7 +8,7 @@
       <a href="/cart/<%= cart_item.id %>/delete/" class="glyphicon glyphicon-trash">Remove</a><br>
     <% end %>
     Total: <%= total_items(@cart) %> items<br>
-    Discount: - £ <%= @discount %><br>
+    Voucher: £ -<%= @discount %><br>
     Total price: £ <%= total_price(@cart, @discount) %>
     <form action="/apply/voucher/" method="POST">
       <input type="text" placeholder="Type in your voucher" name="voucher">
