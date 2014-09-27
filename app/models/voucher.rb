@@ -18,6 +18,17 @@ class Voucher
     Voucher.create(session: session, amount: get_discount(voucher))
   end
 
+  def self.valid?(voucher, session)
+    voucher_5_off_valid?(voucher) || voucher_10_off_valid?(voucher, session) ||
+    voucher_15_off_valid?(voucher, session)
+  end
+
+private
+
+  def self.get_discount(voucher)
+    ALL_VOUCHERS[voucher]
+  end
+
   def self.voucher_10_off_valid?(voucher, session)
     (cart_total_price_more_or_equal_to?(50, session)) && (voucher == GET10OFFVOUCHER)
   end
@@ -31,11 +42,6 @@ class Voucher
     any_footwear?(session)
   end
 
-  def self.valid?(voucher, session)
-    voucher_5_off_valid?(voucher) || voucher_10_off_valid?(voucher, session) ||
-    voucher_15_off_valid?(voucher, session)
-  end
-
   def self.any_footwear?(session)
     get_cart_products(session).select { |item| item.product.category.title == 'Footwear' }.any?
   end
@@ -46,12 +52,6 @@ class Voucher
 
   def self.cart_total_price_more_or_equal_to?(amount, session)
     CartProduct.total_price(get_cart_products(session), 0) >= amount
-  end
-
-private
-
-  def self.get_discount(voucher)
-    ALL_VOUCHERS[voucher]
   end
 
 end
