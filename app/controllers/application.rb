@@ -6,5 +6,5 @@ get '/' do
   @discount = voucher.nil? ? 0 : voucher.amount
   @cart = CartProduct.all(session: session[:session_id])
   @products = StockProduct.all
-	erb :index
+  erb :index
 end

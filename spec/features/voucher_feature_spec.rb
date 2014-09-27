@@ -15,7 +15,7 @@ feature 'Voucher' do
 
     scenario 'can apply a 5 off voucher' do
       add_to_shopping_cart(1)
-      within('.shopping_cart') do
+      within('.shopping_cart_container') do
         expect(page).to have_content 'Total price: £ 99.0'
         fill_in :voucher, with: 'GET5off'
         click_button 'Apply voucher'
@@ -24,9 +24,18 @@ feature 'Voucher' do
       expect(page).to have_content 'Total price: £ 94.0'
     end
 
+    scenario 'can apply a voucher and gets a message of Voucher applied' do
+      add_to_shopping_cart(1)
+      within('.shopping_cart_container') do
+        fill_in :voucher, with: 'GET5off'
+        click_button 'Apply voucher'
+      end
+      expect(page).to have_content 'Voucher applied'
+    end
+
     scenario 'can apply a 10 off voucher of 50 or more purchases' do
       add_to_shopping_cart(1)
-      within('.shopping_cart') do
+      within('.shopping_cart_container') do
         expect(page).to have_content 'Total price: £ 99.0'
         fill_in :voucher, with: 'GET10off'
         click_button 'Apply voucher'
@@ -37,7 +46,7 @@ feature 'Voucher' do
 
     scenario 'can apply a 15 off voucher of 75 or more purchases containing Footwear' do
       add_to_shopping_cart(1)
-      within('.shopping_cart') do
+      within('.shopping_cart_container') do
         expect(page).to have_content 'Total price: £ 99.0'
         fill_in :voucher, with: 'GET15off'
         click_button 'Apply voucher'
@@ -48,7 +57,7 @@ feature 'Voucher' do
 
     scenario 'gets a flash error when wrong voucher applied' do
       add_to_shopping_cart(1)
-      within('.shopping_cart') do
+      within('.shopping_cart_container') do
         fill_in :voucher, with: 'wrongvoucher'
         click_button 'Apply voucher'
       end

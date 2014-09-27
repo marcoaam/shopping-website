@@ -1,20 +1,23 @@
 <div class="shopping_cart_container col-xs-12 col-sm-12 col-md-4">
   <div class="shopping_cart">
     <h2><span class="glyphicon glyphicon-shopping-cart"></span> My Shopping cart</h2>
+    <hr>
     <% @cart.each do |cart_item| %>
-      <%= cart_item.quantity %>  
+      <h4><%= cart_item.quantity %>  
       <%= cart_item.product.title %> | 
-      price: £ <%= cart_item.product.price %> | 
       <a href="/cart/<%= cart_item.id %>/delete/" class="glyphicon glyphicon-trash">Remove</a><br>
+      price: £ <%= cart_item.product.price %> 
+      </h4>
+      <hr>
     <% end %>
-    Total: <%= total_items(@cart) %> items<br>
+    Total: <%= CartProduct.total_items(@cart) %> items<br>
     Voucher: £ -<%= @discount %><br>
-    Total price: £ <%= total_price(@cart, @discount) %>
-    <form action="/apply/voucher/" method="POST">
-      <input type="text" placeholder="Type in your voucher" name="voucher">
-      <input type="submit" value="Apply voucher">
-    </form>
+    Total price: £ <%= CartProduct.total_price(@cart, @discount) %>
   </div>
+  <form class="voucher_form" action="/apply/voucher/" method="POST">
+    <input type="text" placeholder="Type in your voucher" name="voucher">
+    <input type="submit" value="Apply voucher">
+  </form>
 </div>
 
 <ul class="products_list col-md-8">
