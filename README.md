@@ -73,8 +73,8 @@ Views
 - layout         (main application template)
 
 
-Requirements
--------------
+Application run requirements
+----------------------------
 
 - Ruby
 - bundler 
