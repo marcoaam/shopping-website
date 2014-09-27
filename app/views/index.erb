@@ -1,11 +1,11 @@
-<div class="shopping_cart_container col-xs-12 col-sm-12 col-md-12">
+<div class="shopping_cart_container col-xs-12 col-sm-12 col-md-4">
   <div class="shopping_cart">
-    <h2>My Shopping cart</h2>
+    <h2><span class="glyphicon glyphicon-shopping-cart"></span> My Shopping cart</h2>
     <% @cart.each do |cart_item| %>
-      <%= cart_item.product.title %> / 
-      <%= cart_item.quantity %> items
-      price: £ <%= cart_item.product.price %> / 
-      <a href="/cart/<%= cart_item.id %>/delete/">Remove</a><br>
+      <%= cart_item.quantity %>  
+      <%= cart_item.product.title %> | 
+      price: £ <%= cart_item.product.price %> | 
+      <a href="/cart/<%= cart_item.id %>/delete/" class="glyphicon glyphicon-trash">Remove</a><br>
     <% end %>
     Total: <%= total_items(@cart) %> items<br>
     Discount: - £ <%= @discount %><br>
@@ -17,16 +17,18 @@
   </div>
 </div>
 
-<ul class="products_list">
+<ul class="products_list col-md-8">
   <% if @products.any? %> 
     <% @products.each do |stock_item| %>
-    <li class="product_container col-xs-12 col-sm-6 col-md-4" id="<%= stock_item.product.id %>">
+    <li class="product_container col-xs-12 col-sm-6 col-md-6" id="<%= stock_item.product.id %>">
       <div class="product">
-        <h4><%= stock_item.product.title %></h4>
-        Category: <%= stock_item.product.gender %>
+        <h3><%= stock_item.product.title %></h3>
+        <strong>Category: </strong>
+        <%= stock_item.product.gender %>
         <%= stock_item.product.category.title %><br>
-        £ <%= stock_item.product.price %> 
-        Available: <%= stock_item.quantity %>
+        <h3>£ <%= stock_item.product.price %></h3>
+        <h4>Available: <%= stock_item.quantity %></h4>
+        <hr>
         <form action="/cart/add/<%= stock_item.id %>/" method="GET">
           <input type="number" min="1" value="1" name="quantity">
           <input type="submit" value="Add to cart">
