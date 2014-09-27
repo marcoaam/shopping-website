@@ -2,6 +2,11 @@ language: ruby
 rvm:
   - 2.1.2
 install: gem install bundler
+
+before_install: 
+  - sudo apt-get update -qq 
+  - sudo apt-get install -qq postgresql-server-dev-9.3 
+
 script:
   - bundle config build.nokogiri --use-system-libraries
   - travis_retry bundle install
