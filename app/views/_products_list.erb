@@ -9,9 +9,9 @@
       <h3>£ <%= stock_item.product.price %></h3>
       <h4>Available: <%= stock_item.quantity %></h4>
       <hr>
-      <form action="/cart/add/<%= stock_item.id %>/" method="GET">
+      <form class="add_to_cart" action="/cart/add/<%= stock_item.id %>/" method="GET">
         <input type="number" min="1" value="1" name="quantity">
-        <input type="submit" value="Add to cart">
+        <input class="btn btn-success" type="submit" value="Add to cart">
       </form>
     </div>
   </li>
