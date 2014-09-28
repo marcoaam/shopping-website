@@ -35,4 +35,10 @@ describe CartProduct do
     expect(CartProduct.total_price(empty_products, 0)).to eq 0
   end
 
+  it 'calculates the total number of items of a group of products' do
+    expect(products).to receive(:sum).with(:quantity).and_return 1
+
+    expect(CartProduct.total_items(products)).to eq 1
+  end
+
 end
