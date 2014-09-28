@@ -16,11 +16,9 @@ Technologies
 - PostgreSQL
 - Bootstrap
 
-Regarding the decision for the technologies used there are a few things to consider.
+Regarding the decision for the technologies used in this project there are a few things to consider.
 
-I would expect on a real world escenario first determine the customer needs taking information such as size of the business, growth plans, between others to be able to decide about the technologies properly looking close to the information.
-
-Because this is not the case. I decided on this set of technologies based on assumptions of the customers needs from my point of view.
+I would expect on a real world escenario first determine the customer needs taking information such as size of the business, growth plans, between others. That way I would be able to decide about the technologies that suits best for the client needs. Because this is not the case. I decided on a set of technologies based on assumptions of the customers needs from my point of view.
 
 
 ### Sinatra
@@ -109,4 +107,15 @@ How to test it
     rspec
 
 
+Things to do
+------------
 
+If I continue to develop this website I would implement the following to improve the user experience.
+
+### 1. Apply AJAX and JS.
+
+Loading the products to the cart and applying the vouchers is reloading the whole page to do it. By applying AJAX and JS to do so, the user experience would be much better.
+
+### 2. Have more alert messages.
+
+Trying to load a product that it is not in stock and removing products from cart leaving the voucher not valid are not displaying any messages to the user. To have a better user experience I would add this messages to let the user know what is going on.

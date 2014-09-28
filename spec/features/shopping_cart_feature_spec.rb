@@ -53,6 +53,12 @@ feature 'Shopping cart' do
 
   context 'Without any products added to the cart' do
 
+    before(:each) do
+      category = Category.create(title: 'Footwear')
+      product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
+      StockProduct.create(product_id: product.id, quantity: 0)
+    end
+
     scenario 'Shows 0 items and 0 total price' do
       visit '/'
       within('.shopping_cart') do
@@ -60,6 +66,15 @@ feature 'Shopping cart' do
         expect(page).to have_content 'Total price: £ 0'
       end
     end
+
+    scenario 'Does not add product with 0 stock quantity' do
+      add_to_shopping_cart(1)
+      within('.shopping_cart') do
+        expect(page).to have_content 'Total: 0 items'
+        expect(page).to have_content 'Total price: £ 0'
+      end
+    end
+
 
   end
 
