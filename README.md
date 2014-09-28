@@ -86,8 +86,16 @@ Application run requirements
 How to set it up
 ---------------
 
+### Option 1 (download zip folder).
+
 1. Download from https://github.com/marcoaam/shopping-website/archive/master.zip .
 2. Unzip the package and go to the directory in the terminal.
+
+### Option 2 (use git to clone the repo).
+
+    git clone git@github.com:marcoaam/shopping-website.git
+    cd shopping-website
+
 
 Run the following commands
 ------------------------------
