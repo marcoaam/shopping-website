@@ -96,9 +96,7 @@ Run the following commands
     psql -c 'create database shopping_test;'
     psql -c 'create database shopping_development;'
     rake auto_migrate RACK_ENV=test
-    rake auto_upgrade RACK_ENV=test
     rake auto_migrate
-    rake auto_upgrade
     rake seed
     rackup
 
