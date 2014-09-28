@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
-require 'rack-flash'
 require 'dm-aggregates'
+require 'rack-flash'
 
 enable :sessions
 set :session_secret, 'super secret'

@@ -7,7 +7,9 @@ describe CartProduct do
     CartProduct.create(session: 'session_1')
   end
 
-  let(:stock_product) { double :stock_product }
+  let(:stock_product)  { double :stock_product, price: 99 }
+  let(:products)       { double :group_products, map: [99], none?: false, product: stock_product, quantity: 1 }
+  let(:empty_products) { double :group_products, none?: true }
 
   it 'can add a product' do
     cart_product.add_to_cart(1)
@@ -23,6 +25,14 @@ describe CartProduct do
     expect(stock_product).to receive(:save)
 
     cart_product.delete_from_cart
+  end
+
+  it 'calculates the total price of a group of products' do
+    expect(CartProduct.total_price(products, 5)).to eq 94
+  end
+
+  it 'calculates the total price to 0 if the group of products is empty' do
+    expect(CartProduct.total_price(empty_products, 0)).to eq 0
   end
 
 end
