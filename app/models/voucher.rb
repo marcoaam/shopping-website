@@ -1,12 +1,12 @@
 class Voucher
 
-  ALL_VOUCHERS = { 'GET5off' => 5, 
-                  'GET10off' => 10, 
-                  'GET15off' => 15 }
-
   GET5OFFVOUCHER = 'GET5off'
   GET10OFFVOUCHER = 'GET10off'
   GET15OFFVOUCHER = 'GET15off'
+
+  ALL_VOUCHERS = { GET5OFFVOUCHER => 5, 
+                  GET10OFFVOUCHER => 10, 
+                  GET15OFFVOUCHER => 15 }
 
   include DataMapper::Resource
 
@@ -18,7 +18,7 @@ class Voucher
     Voucher.create(session: session, amount: get_discount(voucher))
   end
 
-  def self.valid?(voucher, session)
+  def self.valid?(session, voucher)
     voucher_5_off_valid?(voucher) || voucher_10_off_valid?(voucher, session) ||
     voucher_15_off_valid?(voucher, session)
   end
