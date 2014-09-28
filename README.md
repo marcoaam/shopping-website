@@ -46,7 +46,7 @@ The customer requirement is for a responsive website that can easily be optimise
 File structure
 --------------
 
-In the app folder there are a series of folders in the MVC kind of structure. each one of them contains the following.
+In the app folder there are a series of folders simulating the MVC kind of file structure. each one of them contains the following.
 
 Models
 ------
@@ -60,7 +60,7 @@ There are 5 models to handle the relations efficiently.
 - Voucher
 
 Views
-------
+-----
 
 - index          (handles all the products and cart)
 - _shopping_cart (partial to display the shopping cart)
