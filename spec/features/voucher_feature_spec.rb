@@ -5,7 +5,7 @@ include ShoppingHelper
 
 feature 'Voucher' do
 
-  context 'With some products in the cart' do
+  context 'With some products in the shopping cart' do
 
     before(:each) do
       category = Category.create(title: 'Footwear')

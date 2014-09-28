@@ -1,13 +1,15 @@
 <div class="shopping_cart">
   <h2><span class="glyphicon glyphicon-shopping-cart"></span> My Shopping cart</h2>
   <hr>
-  <% cart.each do |cart_item| %>
-    <p><%= cart_item.quantity %> 
-    <%= cart_item.product.title %> | 
-    <a href="/cart/<%= cart_item.id %>/delete/" class="glyphicon glyphicon-trash">Remove</a><br>
-    Price: £ <%= cart_item.product.price %></p>
-    <hr>
-  <% end %>
+  <div class="shopping_cart_products">
+    <% cart.each do |cart_item| %>
+      <%= cart_item.quantity %> 
+      <%= cart_item.product.title %> | 
+      <a href="/cart/<%= cart_item.id %>/delete/" class="glyphicon glyphicon-trash">Remove</a><br>
+      Price: £ <%= cart_item.product.price %>
+      <hr>
+    <% end %>
+  </div>
   <h4>Total: <%= CartProduct.total_items(cart) %> items<br>
   Voucher: £ -<%= discount %><br>
   Total price: £ <%= CartProduct.total_price(cart, discount) %></h4>

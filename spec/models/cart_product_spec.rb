@@ -13,6 +13,7 @@ describe CartProduct do
 
   it 'can add a product' do
     cart_product.add_to_cart(1)
+    
     expect(cart_product.quantity).to eq 1
   end
 

@@ -1,6 +1,5 @@
 html {
   width: 100%;
-  height: 100%;
 }
 
 body {
@@ -13,6 +12,7 @@ body {
 
 .container {
   max-width: 1200px;
+  height: 100%;
 }
 
 .products_list input[type="number"] {
@@ -38,6 +38,11 @@ and (min-width : 992px) {
     z-index: 1;
   }
 
+}
+
+.shopping_cart_products {
+  max-height: 300px;
+  overflow: scroll;
 }
 
 .shopping_cart {
