@@ -5,7 +5,7 @@ include ShoppingHelper
 
 feature 'Voucher' do
 
-  context 'With some products added to the cart' do
+  context 'With some products in the cart' do
 
     before(:each) do
       category = Category.create(title: 'Footwear')
@@ -62,6 +62,21 @@ feature 'Voucher' do
         click_button 'Apply voucher'
       end
       expect(page).to have_content 'Sorry voucher not valid'
+    end
+
+    scenario 'Voucher becomes invalid if the products are removed' do
+      add_to_shopping_cart(1)
+      within('.shopping_cart_container') do
+        fill_in :voucher, with: 'GET15off'
+        click_button 'Apply voucher'
+      end
+      expect(page).to have_content 'Voucher applied'
+
+      within('.shopping_cart_container') do
+        expect(page).to have_content 'Voucher: £ -15'
+        click_link 'Remove'
+      end
+      expect(page).to have_content 'Voucher: £ -0'
     end
 
   end

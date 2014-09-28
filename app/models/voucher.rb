@@ -25,10 +25,24 @@ class Voucher
     voucher_15_off_valid?(voucher, session)
   end
 
+  def self.get_if_valid(session)
+    voucher = Voucher.first(session: session)
+    if !voucher.nil? && Voucher.valid?(session, get_type_of_voucher(voucher.amount))
+      return voucher
+    else
+      voucher.destroy unless voucher.nil?
+      return nil
+    end
+  end
+
 private
 
   def self.get_discount(voucher)
     ALL_VOUCHERS[voucher]
+  end
+
+  def self.get_type_of_voucher(amount)
+    ALL_VOUCHERS.key(amount)
   end
 
   def self.voucher_10_off_valid?(voucher, session)
