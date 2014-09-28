@@ -1,6 +1,8 @@
 class Voucher
 
-  GET5OFFVOUCHER = 'GET5off'
+  include DataMapper::Resource
+
+  GET5OFFVOUCHER  = 'GET5off'
   GET10OFFVOUCHER = 'GET10off'
   GET15OFFVOUCHER = 'GET15off'
 
@@ -8,11 +10,9 @@ class Voucher
                   GET10OFFVOUCHER => 10, 
                   GET15OFFVOUCHER => 15 }
 
-  include DataMapper::Resource
-
   property :id,       Serial
-  property :session, Text
-  property :amount,  Integer
+  property :session,  Text
+  property :amount,   Integer
 
   def self.apply_voucher(session, voucher)
     new_voucher = Voucher.first_or_create(session: session)

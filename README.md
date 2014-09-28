@@ -3,22 +3,27 @@
 Clothes Shopping Website
 =======================
 
-A Website for shopping clothes build in Sinatra.
+A responsive Website for shopping clothes build in Sinatra.
 
 Technologies
 ------------
 
+Regarding the decision for the technologies used in this project there are a few things to consider.
+
+I would expect on a real world escenario first determine the customer needs taking information such as size of the business, growth plans, between others to be able to proceed and take more accurate decisions. That way I would be able to decide about the technologies that suits best for the client needs.
+
+Taking in mind this is not the case. I decided on a set of technologies based on assumptions of the customers needs from my point of view.
+
+### List of technologies used
+
 - Ruby
 - Sinatra
 - RSpec / Capybara
-- ERB templating library
+- ERB templating system
+- CSS
 - Datamapper
 - PostgreSQL
 - Bootstrap
-
-Regarding the decision for the technologies used in this project there are a few things to consider.
-
-I would expect on a real world escenario first determine the customer needs taking information such as size of the business, growth plans, between others. That way I would be able to decide about the technologies that suits best for the client needs. Because this is not the case. I decided on a set of technologies based on assumptions of the customers needs from my point of view.
 
 
 ### Sinatra

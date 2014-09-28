@@ -12,6 +12,7 @@
   Voucher: £ -<%= discount %><br>
   Total price: £ <%= CartProduct.total_price(cart, discount) %></h4>
 </div>
+
 <form class="voucher_form" action="/apply/voucher/" method="POST">
   <input type="text" placeholder="Type in your voucher" name="voucher">
   <input class="btn btn-primary" type="submit" value="Apply voucher">
