@@ -40,7 +40,7 @@ I choose to use a database in this case even thought I had the option of mocking
 
 ### Bootstrap
 
-The customer requirement is for a responsive website that can easily be optimised to all devices and bootstrap I consider it has great features to do this. Using Bootstrap allows to manipulate elements on the page easily and has a great set of extra features to be ready for expansion when needed.
+The customer requirement is for a responsive website that can easily be optimised to all devices and I consider bootstrap has great features to do this. Using Bootstrap allows to manipulate elements on the page easily and has a great set of extra features to be ready for expansion when needed.
 
 
 File structure
