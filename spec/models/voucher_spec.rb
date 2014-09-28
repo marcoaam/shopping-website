@@ -7,8 +7,12 @@ describe Voucher do
     CartProduct.create(session: 'session_1')
   end
 
+  let(:voucher) { double :voucher }
+
   it 'can apply a voucher' do
-    expect(Voucher).to receive(:create).with(session: 'session_1', amount: 5)
+    expect(Voucher).to receive(:first_or_create).with(session: 'session_1').and_return voucher
+    expect(voucher).to receive(:amount=).with(5)
+    expect(voucher).to receive(:save)
     expect(Voucher.apply_voucher('session_1', 'GET5off'))
   end
 

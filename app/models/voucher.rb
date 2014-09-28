@@ -15,7 +15,9 @@ class Voucher
   property :amount,  Integer
 
   def self.apply_voucher(session, voucher)
-    Voucher.create(session: session, amount: get_discount(voucher))
+    new_voucher = Voucher.first_or_create(session: session)
+    new_voucher.amount = get_discount(voucher)
+    new_voucher.save
   end
 
   def self.valid?(session, voucher)
