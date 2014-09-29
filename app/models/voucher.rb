@@ -14,6 +14,9 @@ class Voucher
                   GET10OFFVOUCHER => 10, 
                   GET15OFFVOUCHER => 15 }
 
+  GET_10_VOUCHER_PRICE_REQUIREMENT = 50
+  GET_15_VOUCHER_PRICE_REQUIREMENT = 75
+
   def self.apply_voucher(session, voucher)
     new_voucher = Voucher.first_or_create(session: session)
     new_voucher.amount = get_discount(voucher)
@@ -46,7 +49,7 @@ private
   end
 
   def self.voucher_10_off_valid?(voucher, session)
-    (cart_total_price_more_or_equal_to?(50, session)) && (voucher == GET10OFFVOUCHER)
+    (cart_total_price_more_or_equal_to?(GET_10_VOUCHER_PRICE_REQUIREMENT, session)) && (voucher == GET10OFFVOUCHER)
   end
 
   def self.voucher_5_off_valid?(voucher)
@@ -54,7 +57,7 @@ private
   end
 
   def self.voucher_15_off_valid?(voucher, session)
-    (cart_total_price_more_or_equal_to?(75, session)) && (voucher == GET15OFFVOUCHER) &&
+    (cart_total_price_more_or_equal_to?(GET_15_VOUCHER_PRICE_REQUIREMENT, session)) && (voucher == GET15OFFVOUCHER) &&
     any_footwear?(session)
   end
 
