@@ -48,8 +48,7 @@ File structure
 
 In the app folder there are a series of folders simulating the MVC kind of file structure. each one of them contains the following.
 
-Models
-------
+### Models
 
 There are 5 models to handle the relations efficiently. The models were implemented in this way because if the client decides in the near future to add functionality as, a search bar or display by category, it can be added easily without much changes.
 
@@ -59,8 +58,7 @@ There are 5 models to handle the relations efficiently. The models were implemen
 - CartProduct
 - Voucher
 
-Views
------
+### Views
 
 - index          (handles all the products and cart)
 - _shopping_cart (partial to display the shopping cart)
@@ -68,8 +66,7 @@ Views
 - _flash_errors  (partial to display the errors)
 - layout         (main application template)
 
-Controllers
------------
+### Controllers
 
 - application   (handles the homepage)
 - shopping_cart (handles each creation and removal of products)
