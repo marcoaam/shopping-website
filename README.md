@@ -51,7 +51,7 @@ In the app folder there are a series of folders simulating the MVC kind of file 
 Models
 ------
 
-There are 5 models to handle the relations efficiently.
+There are 5 models to handle the relations efficiently. The models were implemented in this way because if the client decides in the near future to add functionality as, a search bar or display by category, it can be added easily without much changes.
 
 - Product
 - Category
@@ -117,6 +117,29 @@ How to test it
     cd shopping-website
     rspec
 
+How to use it
+-------------
+
+Openning the page you will find all the products displayed as the user stories indicate.
+
+### Add a product to cart.
+
+By just clicking the "Add to cart" button in any of the products you will see that the product gets added to "My shopping cart". You can also fill the numeric box with the quantity of your choice but it cannot be greater than the quantity available or less than one.
+
+### Remove the product from cart.
+
+By clicking "Remove" inside of the shopping cart for any of the products you can easily remove one of the product that you are clicking.
+
+### Apply vouchers.
+
+As instructed there are 3 types of vouchers.
+
+- GET5off (Doesn't have any restriction).
+- GET10off (Total price greater than 50).
+- GET15off (Total greater that 75 and at least one Footwear item).
+
+To apply the voucher just type in any of those values.
+
 
 Things to do
 ------------
@@ -130,3 +153,7 @@ Loading the products to the cart and applying the vouchers is reloading the whol
 ### 2. Have more alert messages.
 
 Trying to load a product that it is not in stock and removing products from cart leaving the voucher not valid are not displaying any messages to the user. To have a better user experience I would add this messages to let the user know what is going on.
+
+### 3. Add pictures.
+
+In any online shopping wesite pictures play an important role. With a good set of pictures for each product the website look and user experience would be much better. I didn't add them because it is out of the user stories requirements.
