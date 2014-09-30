@@ -76,8 +76,31 @@ Controllers
 - Voucher       (handles the voucher creation)
 
 
-Application run requirements
-----------------------------
+Test files
+-----------
+
+Inside of the spec folder are all the test files.
+
+### Features folder
+
+High level capybara tests.
+
+- products_feature_spec
+- shopping_cart_feature_spec
+- voucher_feature_spec
+- helpers folder (helper file to eliminate some repetition in the tests)
+
+### Models
+
+Unit testing for the models.
+
+- cart_product_spec
+- stock_product_spec
+- voucher_spec
+
+
+Application setup requirements
+------------------------------
 
 - Ruby
 - bundler (gem install bundler)
