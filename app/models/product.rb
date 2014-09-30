@@ -9,5 +9,5 @@ class Product
 
   belongs_to :category
   has 1, :stock_product, :cart_product
-
+  
 end

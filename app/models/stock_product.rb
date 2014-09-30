@@ -17,6 +17,11 @@ class StockProduct
     self.quantity += 1
   end
 
+  def total_quantity
+    return 'Out of stock' if self.quantity == 0
+    self.quantity
+  end
+
 private
 
   def update_cart(session, product_id, amount)

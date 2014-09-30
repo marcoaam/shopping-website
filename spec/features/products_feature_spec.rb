@@ -37,4 +37,19 @@ feature 'Products' do
 
   end
 
+  context 'With a out of stock product in the database' do
+
+    before(:each) do
+      category = Category.create(title: 'Footwear')
+      product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99, category_id: category.id)
+      stock_product = StockProduct.create(product_id: product.id, quantity: 0)
+    end
+
+    scenario 'Shows Out of stock message' do
+      visit '/'
+      expect(page).to have_content 'Out of stock'
+    end
+    
+  end
+
 end

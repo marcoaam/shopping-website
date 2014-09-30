@@ -7,7 +7,7 @@
       <%= stock_item.product.gender %>
       <%= stock_item.product.category.title %><br>
       <h3>£ <%= stock_item.product.price %></h3>
-      <h4>Available: <%= stock_item.quantity %></h4>
+      <h4>Available: <%= stock_item.total_quantity %></h4>
       <hr>
       <form class="add_to_cart" action="/cart/add/<%= stock_item.id %>/" method="GET">
         <input type="number" min="1" value="1" name="quantity">
