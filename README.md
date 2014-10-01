@@ -5,6 +5,8 @@ Clothes Shopping Website
 
 A responsive Website for shopping clothes build using Sinatra.
 
+Check it on Heroku [shopping-website](http://shopping-website.herokuapp.com/)
+
 Technologies
 ------------
 
