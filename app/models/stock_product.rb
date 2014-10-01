@@ -18,8 +18,7 @@ class StockProduct
   end
 
   def total_quantity
-    return 'Out of stock' if self.quantity == 0
-    self.quantity
+    return (self.quantity == 0) ? 'Out of stock' : self.quantity
   end
 
 private

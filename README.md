@@ -3,7 +3,7 @@
 Clothes Shopping Website
 =======================
 
-A responsive Website for shopping clothes build in Sinatra.
+A responsive Website for shopping clothes build using Sinatra.
 
 Technologies
 ------------
@@ -52,11 +52,11 @@ In the app folder there are a series of folders simulating the MVC kind of file 
 
 There are 5 models to handle the relations efficiently. The models were implemented in this way because if the client decides in the near future to add functionality as, a search bar or display by category, it can be added easily without much changes.
 
-- Product
-- Category
-- SockProduct
-- CartProduct
-- Voucher
+- product (class Product)
+- category (class Category)
+- stock_product (class SockProduct)
+- cart_product (class CartProduct)
+- voucher (class Voucher)
 
 ### Views
 

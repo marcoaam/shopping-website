@@ -40,7 +40,7 @@ describe StockProduct do
     expect(product.quantity).to eq 6
   end
 
-  it 'Returns Out of stock if quantity is 0' do
+  it 'returns Out of stock if quantity is 0' do
     expect(out_of_stock_product.total_quantity).to eq 'Out of stock'
   end
 
