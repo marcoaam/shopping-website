@@ -2,7 +2,7 @@ class StockProduct
 
   include DataMapper::Resource
 
-  property :id,       Serial
+  property :id,        Serial
   property :quantity,  Integer
 
   belongs_to :product

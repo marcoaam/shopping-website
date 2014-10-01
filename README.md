@@ -111,7 +111,7 @@ How to set it up
 1. Download from https://github.com/marcoaam/shopping-website/archive/master.zip .
 2. Unzip the package and go to the directory in the terminal.
 
-### Option 2 (use git to clone the repo).
+### Option 2 (use git).
 
     git clone git@github.com:marcoaam/shopping-website.git
     cd shopping-website

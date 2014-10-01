@@ -2,8 +2,8 @@ class CartProduct
 
   include DataMapper::Resource
 
-  property :id,       Serial
-  property :session, Text
+  property :id,        Serial
+  property :session,   Text
   property :quantity,  Integer
 
   belongs_to :product

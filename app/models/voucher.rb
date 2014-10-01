@@ -10,9 +10,9 @@ class Voucher
   GET10OFFVOUCHER = 'GET10off'
   GET15OFFVOUCHER = 'GET15off'
 
-  ALL_VOUCHERS = { GET5OFFVOUCHER => 5, 
-                  GET10OFFVOUCHER => 10, 
-                  GET15OFFVOUCHER => 15 }
+  ALL_VOUCHERS_DISCOUNTS = { GET5OFFVOUCHER => 5, 
+                            GET10OFFVOUCHER => 10, 
+                            GET15OFFVOUCHER => 15 }
 
   GET_10_VOUCHER_PRICE_REQUIREMENT = 50
   GET_15_VOUCHER_PRICE_REQUIREMENT = 75
@@ -41,11 +41,11 @@ class Voucher
 private
 
   def self.get_discount(voucher)
-    ALL_VOUCHERS[voucher]
+    ALL_VOUCHERS_DISCOUNTS[voucher]
   end
 
   def self.get_type_of_voucher(amount)
-    ALL_VOUCHERS.key(amount)
+    ALL_VOUCHERS_DISCOUNTS.key(amount)
   end
 
   def self.voucher_10_off_valid?(voucher, session)
