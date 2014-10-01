@@ -7,6 +7,11 @@ describe StockProduct do
     StockProduct.create(product_id: product.id, quantity: 5)
   end
 
+  let(:out_of_stock_product) do
+    product = Product.create(title: 'Almond Toe Court Shoes', gender: 'Women’s', price: 99)
+    StockProduct.create(product_id: product.id, quantity: 0)
+  end
+
   let(:cart) { double :cart }
 
   it 'can remove quantity' do
@@ -33,6 +38,10 @@ describe StockProduct do
   it 'adds 1 to product quantity' do
     product.add_to_stock
     expect(product.quantity).to eq 6
+  end
+
+  it 'Returns Out of stock if quantity is 0' do
+    expect(out_of_stock_product.total_quantity).to eq 'Out of stock'
   end
 
 end
